@@ -2,6 +2,7 @@ package base;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.github.bonigarcia.wdm.config.DriverManagerType;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -16,7 +17,8 @@ public enum BrowserDriverFactory {
         public WebDriver createDriver() {
             WebDriverManager.getInstance(DriverManagerType.CHROME).setup();
             ChromeDriver driver = new ChromeDriver(getOptions());
-            driver.manage().window().maximize();
+          //  driver.manage().window().maximize();
+            driver.manage().window().setSize(new Dimension(4096,4096));
             return driver;
         }
 

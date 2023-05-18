@@ -14,7 +14,7 @@ public class DemoqaTest extends BaseTest {
     protected DemoqaMainPage mainPage;
     private ElementsPage elementsPage;
 
-    @BeforeTest(groups = {"DemoqaTest"})
+    @BeforeTest
     protected void goToElements() {
         mainPage = new DemoqaMainPage(driver);
         mainPage.openUrl("https://demoqa.com/");
@@ -22,13 +22,10 @@ public class DemoqaTest extends BaseTest {
     }
     @Test
     protected void submitTextform(){
-
-        mainPage.openUrl("https://demoqa.com/");
         elementsPage
                 .goToTextBox()
                 .fillFullName("John Smith")
                 .submit();
-
         elementsPage.assertTextBoxOutputEquals("Name:John Smith");
     }
 

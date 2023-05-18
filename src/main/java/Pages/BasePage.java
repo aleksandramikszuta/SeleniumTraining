@@ -60,7 +60,7 @@ public class BasePage {
 
     protected void scrollDown() {
         Actions actions = new Actions(driver);
-        actions.keyDown(Keys.CONTROL).sendKeys(Keys.END).perform();
+        actions.keyDown(Keys.CONTROL).sendKeys(Keys.END).keyUp(Keys.CONTROL).build().perform();
     }
 
     protected void assertTextEquals(By locator, String text) {

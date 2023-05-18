@@ -1,5 +1,6 @@
 package Pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -12,8 +13,8 @@ import java.lang.invoke.MethodHandles;
 
 public class DemoqaMainPage extends BasePage {
     private final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
-    @FindBy(xpath = "//h5[text()='Elements']")
-    WebElement elements;
+
+    By elements = By.xpath("//h5[text()='Elements'])");
 
     public DemoqaMainPage(WebDriver driver) {
         super(driver);
