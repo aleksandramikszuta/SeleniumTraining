@@ -31,7 +31,11 @@ public class ElementsPage extends BasePage {
 
     By outputField = By.cssSelector("p[id='name']");
 
+    By homeCheckbox = ElementsPage.getCheckboxByDirectory("Home");
 
+public static By getCheckboxByDirectory(String checkboxText){
+    return By.xpath("//span[text()='" + checkboxText + "']/..//span[@class='rct-checkbox']");
+}
         public ElementsPage goToTextBox () {
             scrollDown();
             click(textbox);
@@ -39,6 +43,7 @@ public class ElementsPage extends BasePage {
         }
 
         public ElementsPage goToCheckBox () {
+            scrollDown();
             click(checkbox);
             return this;
         }
@@ -57,5 +62,10 @@ public class ElementsPage extends BasePage {
     public ElementsPage assertTextBoxOutputEquals(String output) {
             assertTextEquals(outputField, output);
             return this;
+    }
+
+    public ElementsPage checkDirectoryHome(){
+    click(homeCheckbox);
+    return this;
     }
 }

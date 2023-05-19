@@ -28,6 +28,12 @@ public class DemoqaTest extends BaseTest {
                 .submit();
         elementsPage.assertTextBoxOutputEquals("Name:John Smith");
     }
+    @Test
+    protected void listsAllDirectoriesWhenTheRootIsChecked(){
+        elementsPage
+                .goToCheckBox()
+                .checkDirectoryHome();
+    }
 
     @AfterSuite
     public void tearDown() {

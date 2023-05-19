@@ -14,7 +14,7 @@ import java.lang.invoke.MethodHandles;
 public class DemoqaMainPage extends BasePage {
     private final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
-    By elements = By.xpath("//h5[text()='Elements'])");
+    By elements = By.xpath("//h5[text()='Elements']");
 
     public DemoqaMainPage(WebDriver driver) {
         super(driver);
