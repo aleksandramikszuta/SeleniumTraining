@@ -1,5 +1,6 @@
 import Pages.DemoqaMainPage;
 import Pages.ElementsPage;
+import Asserts.ElementsAsserts;
 import base.BaseTest;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;
@@ -13,12 +14,14 @@ public class DemoqaTest extends BaseTest {
 
     protected DemoqaMainPage mainPage;
     private ElementsPage elementsPage;
+    private ElementsAsserts elementsAsserts;
 
     @BeforeTest
     protected void goToElements() {
         mainPage = new DemoqaMainPage(driver);
         mainPage.openUrl("https://demoqa.com/");
         elementsPage = mainPage.goToElementsPage();
+        elementsAsserts = new ElementsAsserts(driver);
     }
     @Test
     protected void submitTextform(){
@@ -26,13 +29,15 @@ public class DemoqaTest extends BaseTest {
                 .goToTextBox()
                 .fillFullName("John Smith")
                 .submit();
-        elementsPage.assertTextBoxOutputEquals("Name:John Smith");
+        elementsAsserts.assertTextBoxOutputEquals("Name:John Smith");
     }
     @Test
     protected void listsAllDirectoriesWhenTheRootIsChecked(){
         elementsPage
                 .goToCheckBox()
-                .checkDirectoryHome();
+                .checkDirectoryHome()
+                .expandCheckboxTree();
+        elementsAsserts.assertCheckboxesCount(17);
     }
 
     @AfterSuite

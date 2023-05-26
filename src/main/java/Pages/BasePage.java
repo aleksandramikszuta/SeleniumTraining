@@ -64,7 +64,7 @@ public class BasePage {
     }
 
     protected void assertTextEquals(By locator, String text) {
-        waitForVisibilityOf(locator, 5);
+        waitForVisibilityOf(locator, WAIT);
         assertEquals(find(locator).getText(), text);
     }
 }

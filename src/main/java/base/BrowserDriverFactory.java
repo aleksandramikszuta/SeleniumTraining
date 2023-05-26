@@ -17,7 +17,6 @@ public enum BrowserDriverFactory {
         public WebDriver createDriver() {
             WebDriverManager.getInstance(DriverManagerType.CHROME).setup();
             ChromeDriver driver = new ChromeDriver(getOptions());
-          //  driver.manage().window().maximize();
             driver.manage().window().setSize(new Dimension(4096,4096));
             return driver;
         }

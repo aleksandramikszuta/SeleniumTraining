@@ -29,43 +29,41 @@ public class ElementsPage extends BasePage {
 
     By textBoxSubmitButton = By.cssSelector("button[id='submit']");
 
-    By outputField = By.cssSelector("p[id='name']");
+    protected By outputField = By.cssSelector("p[id='name']");
 
     By homeCheckbox = ElementsPage.getCheckboxByDirectory("Home");
+
+    By plusButton = By.cssSelector("button[title='Expand all']");
 
 public static By getCheckboxByDirectory(String checkboxText){
     return By.xpath("//span[text()='" + checkboxText + "']/..//span[@class='rct-checkbox']");
 }
         public ElementsPage goToTextBox () {
-            scrollDown();
+          scrollDown();
             click(textbox);
             return this;
         }
-
         public ElementsPage goToCheckBox () {
             scrollDown();
             click(checkbox);
             return this;
         }
-
     public ElementsPage fillFullName(String name) {
             click(textboxFullname);
             type(name, textboxFullname);
             return this;
     }
-
     public ElementsPage submit() {
+
             click(textBoxSubmitButton);
             return this;
     }
-
-    public ElementsPage assertTextBoxOutputEquals(String output) {
-            assertTextEquals(outputField, output);
-            return this;
-    }
-
     public ElementsPage checkDirectoryHome(){
     click(homeCheckbox);
+    return this;
+    }
+    public ElementsPage expandCheckboxTree(){
+    click(plusButton);
     return this;
     }
 }
