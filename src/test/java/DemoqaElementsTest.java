@@ -1,28 +1,25 @@
+
 import Pages.DemoqaMainPage;
 import Pages.ElementsPage;
 import Asserts.ElementsAsserts;
+
 import base.BaseTest;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.*;
 
-
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.Test;
-
-public class DemoqaTest extends BaseTest {
-
+public class DemoqaElementsTest extends BaseTest {
     protected DemoqaMainPage mainPage;
     private ElementsPage elementsPage;
     private ElementsAsserts elementsAsserts;
 
-    @BeforeTest
+
+    @BeforeSuite
     protected void goToElements() {
         mainPage = new DemoqaMainPage(driver);
         mainPage.openUrl("https://demoqa.com/");
         elementsPage = mainPage.goToElementsPage();
         elementsAsserts = new ElementsAsserts(driver);
     }
+
     @Test
     protected void submitTextform(){
         elementsPage
@@ -40,10 +37,4 @@ public class DemoqaTest extends BaseTest {
         elementsAsserts.assertCheckboxesCount(17);
     }
 
-    @AfterSuite
-    public void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
-    }
 }

@@ -13,8 +13,8 @@ import java.lang.invoke.MethodHandles;
 
 public class DemoqaMainPage extends BasePage {
     private final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
-
     By elements = By.xpath("//h5[text()='Elements']");
+    By widgets = By.xpath("//h5[text()='Widgets']");
 
     public DemoqaMainPage(WebDriver driver) {
         super(driver);
@@ -25,7 +25,11 @@ public class DemoqaMainPage extends BasePage {
         scrollDown();
         click(elements);
         return new ElementsPage(driver);
-
+    }
+    public WidgetsPage goToWidgetsPage(){
+        scrollDown();
+        click(widgets);
+        return new WidgetsPage(driver);
     }
 
 }

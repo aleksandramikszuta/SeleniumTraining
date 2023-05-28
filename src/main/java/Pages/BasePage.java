@@ -5,6 +5,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.devtools.v85.page.Page;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -24,7 +25,7 @@ public class BasePage {
         driver.get(url);
     }
 
-    BasePage(WebDriver driver){
+    protected BasePage(WebDriver driver){
         this.driver= driver;
         PageFactory.initElements(driver, this);
     }
@@ -66,5 +67,19 @@ public class BasePage {
     protected void assertTextEquals(By locator, String text) {
         waitForVisibilityOf(locator, WAIT);
         assertEquals(find(locator).getText(), text);
+    }
+    public void clickOutside() {
+        Actions action = new Actions(driver);
+        action.moveByOffset(100, 100).click().build().perform();
+    }
+
+    public String getValueOf(By locator, String attribute) {
+        waitForVisibilityOf(locator, WAIT);
+        return find(locator).getAttribute(attribute);
+    }
+    public void clearInput(By locator) {
+        waitForVisibilityOf(locator, WAIT);
+        find(locator).clear();
+
     }
 }

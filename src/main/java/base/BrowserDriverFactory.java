@@ -24,6 +24,7 @@ public enum BrowserDriverFactory {
         @Override
         public ChromeOptions getOptions() {
             return new ChromeOptions();
+
         }
     },
     EDGE {

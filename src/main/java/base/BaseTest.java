@@ -9,6 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.testng.annotations.AfterSuite;
 
 public class BaseTest {
     public WebDriver driver = BrowserDriverFactory.CHROME.createDriver();
@@ -22,6 +23,10 @@ public class BaseTest {
     @FindBy(xpath = "userName")
     WebElement username;
 
-
-
+    @AfterSuite
+    public void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
 }
