@@ -22,8 +22,7 @@ public class BaseTest {
 
     @FindBy(xpath = "userName")
     WebElement username;
-
-    @AfterSuite
+    @AfterSuite(alwaysRun = true)
     public void tearDown() {
         if (driver != null) {
             driver.quit();
