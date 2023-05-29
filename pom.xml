@@ -9,8 +9,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-
-
+            <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <slf4jVersion>2.20.0</slf4jVersion>
         <assertJVersion>3.24.2</assertJVersion>
         <logbackVersion>1.4.6</logbackVersion>
@@ -49,7 +48,7 @@
                         <allure.link.tms.pattern>https://example.org/browse/{}</allure.link.tms.pattern>
                     </systemPropertyVariables>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/TestSuits/AllTests.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources/testsuit.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
                 <dependencies>
@@ -57,6 +56,12 @@
                         <groupId>org.aspectj</groupId>
                         <artifactId>aspectjweaver</artifactId>
                         <version>${aspectjVersion}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>com.beust</groupId>
+                        <artifactId>jcommander</artifactId>
+                        <version>1.81</version>
+                        <scope>compile</scope>
                     </dependency>
 
 
@@ -73,18 +78,18 @@
             <artifactId>selenium-java</artifactId>
             <version>${seleniumVersion}</version>
         </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jquery</artifactId>
+            <version>3.5.1</version>
+            <scope>test</scope>
+        </dependency>
 
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
             <version>1.2.17</version>
             <type>pom</type>
-        </dependency>
-        <dependency>
-            <groupId>org.assertj</groupId>
-            <artifactId>assertj-core</artifactId>
-            <version>${assertJVersion}</version>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>io.qameta.allure</groupId>

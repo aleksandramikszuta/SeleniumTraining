@@ -35,12 +35,12 @@ public static By getCheckboxByDirectory(String checkboxText){
     return By.xpath("//span[text()='" + checkboxText + "']/..//span[@class='rct-checkbox']");
 }
         public ElementsPage goToTextBox () {
-          scrollDown();
+         // scrollDown();
             click(textbox);
             return this;
         }
         public ElementsPage goToCheckBox () {
-            scrollDown();
+         //   scrollDown();
             click(checkbox);
             return this;
         }

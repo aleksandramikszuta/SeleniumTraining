@@ -4,22 +4,21 @@ import Pages.ElementsPage;
 import Asserts.ElementsAsserts;
 
 import base.BaseTest;
+import configuration.Group;
 import org.testng.annotations.*;
-
+@Test(groups = {Group.POSITIVE})
 public class DemoqaElementsTest extends BaseTest {
     protected DemoqaMainPage mainPage;
     private ElementsPage elementsPage;
     private ElementsAsserts elementsAsserts;
 
-
-    @BeforeSuite
+    @BeforeTest(alwaysRun = true)
     protected void goToElements() {
         mainPage = new DemoqaMainPage(driver);
         mainPage.openUrl("https://demoqa.com/");
         elementsPage = mainPage.goToElementsPage();
         elementsAsserts = new ElementsAsserts(driver);
     }
-
     @Test
     protected void submitTextform(){
         elementsPage
