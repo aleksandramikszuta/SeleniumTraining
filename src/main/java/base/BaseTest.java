@@ -3,9 +3,6 @@ package base;
 
 import com.beust.jcommander.Parameters;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,9 +16,6 @@ public class BaseTest {
     protected String testName;
     protected String testMethodName;
 
-
-    @FindBy(xpath = "userName")
-    WebElement username;
     @AfterSuite(alwaysRun = true)
     public void tearDown() {
         if (driver != null) {

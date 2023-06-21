@@ -18,7 +18,6 @@ public class DemoqaMainPage extends BasePage {
 
     public DemoqaMainPage(WebDriver driver) {
         super(driver);
-        PageFactory.initElements(driver, this);
     }
 
     public ElementsPage goToElementsPage(){
